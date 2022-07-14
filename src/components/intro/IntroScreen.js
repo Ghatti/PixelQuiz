@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { render } from "react-dom";
 import { View, Text, Image, Pressable, FlatList } from "react-native";
 import styles from "./styles";
+
+import displayContent from "../../../appData/IntroScreen/displayData";
 
 function StepIndicator({ current }) {
   const style = current ? styles.currentStep : styles.stepIndicator;
@@ -10,28 +11,8 @@ function StepIndicator({ current }) {
 }
 
 export default function IntroScreen(props) {
-  const content = [
-    {
-      image: require("../../../assets/images/introScreen/GiantPhone.png"),
-      header: "Aprenda a qualquer hora e em qualquer lugar",
-      description:
-        "Tenha em suas mãos perguntas sobre os mais variados assuntos e aprenda errando!",
-    },
-    {
-      image: require("../../../assets/images/introScreen/HandBook.png"),
-      header: "Diversos assuntos para você",
-      description:
-        "São vários quizes diferentes para você. Escolha um e se aventure!",
-    },
-    {
-      image: require("../../../assets/images/introScreen/CoolKids.png"),
-      header: "Melhore suas habilidades",
-      description:
-        "Memorize os conteúdos do aplicativo e melhore suas habilidades!",
-    },
-  ];
-
   const [step, setStep] = useState(0);
+  const content = displayContent;
 
   function handlePress() {
     setStep((prev) => (prev + 1) % 3);
