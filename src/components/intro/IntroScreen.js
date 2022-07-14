@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, Image, Pressable, FlatList } from "react-native";
-import styles from "./styles";
 
+import SafeContainer from "../shared/SafeContainer/SafeContainer";
+import styles from "./styles";
 import displayContent from "../../../appData/IntroScreen/displayData";
 
 function StepIndicator({ current }) {
@@ -10,12 +11,16 @@ function StepIndicator({ current }) {
   return <View style={style} />;
 }
 
-export default function IntroScreen(props) {
+export default function IntroScreen({ navigation }) {
   const [step, setStep] = useState(0);
   const content = displayContent;
 
+  function goToLogin() {
+    navigation.navigate("Login");
+  }
+
   function handlePress() {
-    setStep((prev) => (prev + 1) % 3);
+    step === 2 ? goToLogin() : setStep((prev) => (prev + 1) % 3);
   }
 
   function renderItem({ item, index }) {
@@ -23,24 +28,28 @@ export default function IntroScreen(props) {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.skipLink}>Skip</Text>
-      <View style={styles.mainSection}>
-        <Image style={styles.image} source={content[step].image} />
-        <Text style={styles.header}>{content[step].header}</Text>
-        <Text style={styles.description}>{content[step].description}</Text>
+    <SafeContainer>
+      <View style={styles.container}>
+        <Pressable onPress={goToLogin}>
+          <Text style={styles.skipLink}>Skip</Text>
+        </Pressable>
+        <View style={styles.mainSection}>
+          <Image style={styles.image} source={content[step].image} />
+          <Text style={styles.header}>{content[step].header}</Text>
+          <Text style={styles.description}>{content[step].description}</Text>
 
-        <FlatList
-          contentContainerStyle={styles.stepsContainer}
-          data={content}
-          renderItem={renderItem}
-          keyExtractor={(item, index) => `step-${index}`}
-          horizontal={true}
-        />
+          <FlatList
+            contentContainerStyle={styles.stepsContainer}
+            data={content}
+            renderItem={renderItem}
+            keyExtractor={(item, index) => `step-${index}`}
+            horizontal={true}
+          />
+        </View>
+        <Pressable style={styles.advanceButton} onPress={handlePress}>
+          <Text style={styles.buttonText}>Avançar</Text>
+        </Pressable>
       </View>
-      <Pressable style={styles.advanceButton} onPress={handlePress}>
-        <Text style={styles.buttonText}>Avançar</Text>
-      </Pressable>
-    </View>
+    </SafeContainer>
   );
 }

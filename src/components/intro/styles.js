@@ -11,9 +11,17 @@ const globalStyles = {
 };
 
 const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+
+    backgroundColor: "#EDDFBC",
+  },
   container: {
     flex: 1,
     width: "85%",
+
     justifyContent: "space-around",
   },
   skipLink: {
