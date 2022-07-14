@@ -50,6 +50,7 @@ export default function IntroScreen(props) {
         <Text style={styles.description}>{content[step].description}</Text>
 
         <FlatList
+          contentContainerStyle={styles.stepsContainer}
           data={content}
           renderItem={renderItem}
           keyExtractor={(item, index) => `step-${index}`}
