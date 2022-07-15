@@ -1,15 +1,5 @@
 import { StyleSheet } from "react-native";
-
-const globalStyles = {
-  fontFamily: "Rubik",
-  darkGrey: "#78746D",
-  grey: "#BEBAB3",
-  lightGrey: "#D5D4D4",
-  headerBlack: "#3C3A36",
-  purple: "#82327E",
-  lightBlue: "#65AAEA",
-  white: "#FFFFFF",
-};
+import globalStyles from "../../globalStyles";
 
 const styles = StyleSheet.create({
   container: {
@@ -20,7 +10,7 @@ const styles = StyleSheet.create({
   screenHeader: {
     height: 32,
 
-    fontFamily: globalStyles.fontFamily,
+    fontFamily: globalStyles.font.main,
     fontWeight: "bold",
     fontSize: 24,
     lineHeight: 32,
@@ -28,29 +18,28 @@ const styles = StyleSheet.create({
     textAlign: "center",
     letterSpacing: -0.5,
 
-    color: globalStyles.headerBlack,
+    color: globalStyles.color.headerBlack,
   },
   inputBox: {
     padding: 16,
 
     height: 53,
 
-    backgroundColor: globalStyles.white,
+    backgroundColor: globalStyles.color.white,
 
     borderWidth: 1,
-    borderColor: globalStyles.grey,
+    borderColor: globalStyles.color.grey,
     borderStyle: "solid",
     borderRadius: 12,
   },
   secondaryText: {
-    
     height: 16,
     fontFamily: "Rubik",
     fontWeight: "bold",
     fontSize: 14,
     textAlign: "center",
 
-    color: globalStyles.darkGrey,
+    color: globalStyles.color.darkGrey,
   },
 });
 

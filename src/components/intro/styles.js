@@ -1,13 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const globalStyles = {
-  fontFamily: "Rubik",
-  darkGrey: "#78746D",
-  lightGrey: "#D5D4D4",
-  headerBlack: "#3C3A36",
-  purple: "#82327E",
-  lightBlue: "#65AAEA",
-};
+import globalStyles from "../../globalStyles";
 
 const styles = StyleSheet.create({
   safeContainer: {
@@ -28,10 +21,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     alignSelf: "flex-end",
 
-    fontFamily: globalStyles.fontFamily,
+    fontFamily: globalStyles.font.main,
     fontWeight: "bold",
     fontSize: 14,
-    color: globalStyles.darkGrey,
+    color: globalStyles.color.darkGrey,
   },
   mainSection: {
     height: "55%",
@@ -47,19 +40,19 @@ const styles = StyleSheet.create({
     maxHeight: 60,
     justifyContent: "center",
 
-    fontFamily: globalStyles.fontFamily,
+    fontFamily: globalStyles.font.main,
     fontSize: 24,
     fontWeight: "bold",
-    color: globalStyles.headerBlack,
+    color: globalStyles.color.headerBlack,
     textAlign: "center",
   },
   description: {
     marginTop: 20,
     height: 60,
 
-    fontFamily: globalStyles.fontFamily,
+    fontFamily: globalStyles.font.main,
     fontSize: 14,
-    color: globalStyles.darkGrey,
+    color: globalStyles.color.darkGrey,
     textAlign: "center",
   },
   stepsContainer: {
@@ -70,12 +63,12 @@ const styles = StyleSheet.create({
   stepIndicator: {
     height: 6,
     width: 6,
-    backgroundColor: globalStyles.lightGrey,
+    backgroundColor: globalStyles.color.lightGrey,
   },
   currentStep: {
     height: 6,
     width: 16,
-    backgroundColor: globalStyles.lightBlue,
+    backgroundColor: globalStyles.color.lightBlue,
     borderRadius: 4,
   },
 });

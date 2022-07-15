@@ -1,9 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const globalStyles = {
-  fontFamily: "Rubik",
-  purple: "#82327E",
-};
+import globalStyles from "../../../globalStyles";
 
 const styles = StyleSheet.create({
   customButton: {
@@ -14,11 +11,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
 
-    backgroundColor: globalStyles.purple,
+    backgroundColor: globalStyles.color.purple,
   },
   buttonText: {
     color: "white",
-    fontFamily: globalStyles.fontFamily,
+    fontFamily: globalStyles.font.main,
     fontSize: 16,
     fontWeight: "bold",
   },
