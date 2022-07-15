@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { TouchableWithoutFeedback } from "react-native-web";
 
 const globalStyles = {
   fontFamily: "Rubik",
@@ -20,6 +19,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+
     width: "85%",
 
     justifyContent: "space-around",
@@ -77,22 +77,6 @@ const styles = StyleSheet.create({
     width: 16,
     backgroundColor: globalStyles.lightBlue,
     borderRadius: 4,
-  },
-  advanceButton: {
-    width: 300,
-    height: 56,
-    borderRadius: 16,
-
-    alignItems: "center",
-    justifyContent: "center",
-
-    backgroundColor: globalStyles.purple,
-  },
-  buttonText: {
-    color: "white",
-    fontFamily: globalStyles.fontFamily,
-    fontSize: 16,
-    fontWeight: "bold",
   },
 });
 

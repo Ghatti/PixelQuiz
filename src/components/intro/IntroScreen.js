@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, Image, Pressable, FlatList } from "react-native";
-
-import SafeContainer from "../shared/SafeContainer/SafeContainer";
 import styles from "./styles";
+
+//custom components
+import SafeContainer from "../shared/SafeContainer/SafeContainer";
+import CustomButton from "../shared/customButton/customButton";
+
+//data
 import displayContent from "../../../appData/IntroScreen/displayData";
 
 function StepIndicator({ current }) {
@@ -46,9 +50,10 @@ export default function IntroScreen({ navigation }) {
             horizontal={true}
           />
         </View>
-        <Pressable style={styles.advanceButton} onPress={handlePress}>
-          <Text style={styles.buttonText}>Avançar</Text>
-        </Pressable>
+        <CustomButton
+          displayText={step === 2 ? "Vamos lá!" : "Avançar"}
+          handlePress={handlePress}
+        />
       </View>
     </SafeContainer>
   );
