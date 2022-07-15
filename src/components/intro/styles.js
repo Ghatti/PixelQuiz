@@ -49,11 +49,6 @@ const styles = StyleSheet.create({
   description: {
     marginTop: 20,
     height: 60,
-
-    fontFamily: globalStyles.font.main,
-    fontSize: 14,
-    color: globalStyles.color.darkGrey,
-    textAlign: "center",
   },
   stepsContainer: {
     width: 50,

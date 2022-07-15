@@ -3,7 +3,7 @@ import globalStyles from "../../globalStyles";
 
 const styles = StyleSheet.create({
   container: {
-    height: "55%",
+    height: 325,
     width: "85%",
     justifyContent: "space-around",
   },
@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   secondaryText: {
-    height: 16,
     fontFamily: "Rubik",
     fontWeight: "bold",
     fontSize: 14,

@@ -5,20 +5,23 @@ import styles from "./styles";
 //custom Components
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
 import CustomButton from "../shared/customButton/customButton";
+import SecondaryText from "../shared/SecondaryText/SecondaryText";
+
+//Routes
+
+import {
+  FORGOTPASSWORD,
+  HOME,
+  REGISTER,
+} from "../../../appData/routes/Routes";
 
 function LoginScreen({ navigation }) {
-  const ROUTES = {
-    forgotPassword: "ForgotPassword",
-    home: "Home",
-    register: "Register",
-  };
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   function handleLogin() {
     if (email !== "" && password !== "") {
-      navigation.navigate(ROUTES.home);
+      navigation.navigate(HOME);
     }
   }
   return (
@@ -42,12 +45,12 @@ function LoginScreen({ navigation }) {
           secureTextEntry={true}
           onChangeText={setPassword}
         />
-        <Pressable onPress={() => navigation.navigate(ROUTES.forgotPassword)}>
-          <Text style={styles.secondaryText}>Esqueceu sua senha?</Text>
+        <Pressable onPress={() => navigation.navigate(FORGOTPASSWORD)}>
+          <SecondaryText value="Esqueceu sua senha?" />
         </Pressable>
         <CustomButton displayText="Entrar" handlePress={handleLogin} />
-        <Pressable onPress={() => navigation.navigate(ROUTES.register)}>
-          <Text style={styles.secondaryText}>Criar uma conta</Text>
+        <Pressable onPress={() => navigation.navigate(REGISTER)}>
+          <SecondaryText value="Criar uma conta" />
         </Pressable>
       </View>
     </SafeContainer>

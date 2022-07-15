@@ -4,6 +4,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 //Custom Components
 import IntroScreen from "./intro/IntroScreen";
 import LoginScreen from "./login/LoginScreen";
+import ForgotPasswordScreen from "./login/ForgotPassword/ForgotPassword";
+
+//Routes
+import {
+  HOME,
+  INTRO,
+  LOGIN,
+  FORGOTPASSWORD,
+  REGISTER,
+} from "../../appData/routes/Routes";
 
 const Stack = createNativeStackNavigator();
 
@@ -11,13 +21,14 @@ export default function Main() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Intro"
+        initialRouteName={INTRO}
         screenOptions={{
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Intro" component={IntroScreen} />
-        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name={INTRO} component={IntroScreen} />
+        <Stack.Screen name={LOGIN} component={LoginScreen} />
+        <Stack.Screen name={FORGOTPASSWORD} component={ForgotPasswordScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

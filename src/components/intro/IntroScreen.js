@@ -5,9 +5,11 @@ import styles from "./styles";
 //custom components
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
 import CustomButton from "../shared/customButton/customButton";
+import SecondaryText from "../shared/SecondaryText/SecondaryText";
 
 //data
 import displayContent from "../../../appData/IntroScreen/displayData";
+import { LOGIN } from "../../../appData/routes/Routes";
 
 function StepIndicator({ current }) {
   const style = current ? styles.currentStep : styles.stepIndicator;
@@ -20,7 +22,7 @@ export default function IntroScreen({ navigation }) {
   const content = displayContent;
 
   function goToLogin() {
-    navigation.navigate("Login");
+    navigation.navigate(LOGIN);
   }
 
   function handlePress() {
@@ -40,7 +42,10 @@ export default function IntroScreen({ navigation }) {
         <View style={styles.mainSection}>
           <Image style={styles.image} source={content[step].image} />
           <Text style={styles.header}>{content[step].header}</Text>
-          <Text style={styles.description}>{content[step].description}</Text>
+
+          <View style={styles.description}>
+            <SecondaryText value={content[step].description} />
+          </View>
 
           <FlatList
             contentContainerStyle={styles.stepsContainer}
