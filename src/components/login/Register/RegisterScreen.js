@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Pressable } from "react-native";
+import { ScrollView, View, Text, TextInput, Pressable } from "react-native";
 import { default as loginStyles } from "../styles";
 import styles from "./styles";
 
@@ -21,38 +21,46 @@ function RegisterScreen({ navigation }) {
 
   return (
     <SafeContainer>
-      <View style={styles.container}>
-        <Text style={loginStyles.screenHeader}>Cadastre-se</Text>
-        <SecondaryText value="Crie uma conta gratuitamente" />
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.container}>
+          <Text style={loginStyles.screenHeader}>Cadastre-se</Text>
+          <SecondaryText value="Crie uma conta gratuitamente" />
 
-        <TextInput
-          style={loginStyles.inputBox}
-          value={nome}
-          placeholder="Nome"
-          autoFocus={true}
-          onChangeText={setNome}
-        />
-        <TextInput
-          style={loginStyles.inputBox}
-          value={email}
-          placeholder="Email"
-          autoComplete="email"
-          keyboardType="email-address"
-          onChangeText={setEmail}
-        />
-        <TextInput
-          style={loginStyles.inputBox}
-          value={password}
-          placeholder="Senha"
-          secureTextEntry={true}
-          onChangeText={setPassword}
-        />
+          <TextInput
+            style={loginStyles.inputBox}
+            value={nome}
+            placeholder="Nome"
+            autoFocus={true}
+            onChangeText={setNome}
+          />
+          <TextInput
+            style={loginStyles.inputBox}
+            value={email}
+            placeholder="Email"
+            autoComplete="email"
+            keyboardType="email-address"
+            onChangeText={setEmail}
+          />
+          <TextInput
+            style={loginStyles.inputBox}
+            value={password}
+            placeholder="Senha"
+            secureTextEntry={true}
+            onChangeText={setPassword}
+          />
 
-        <CustomButton displayText="Cadastrar-se" handlePress={handleRegister} />
-        <Pressable onPress={() => navigation.navigate(LOGIN)}>
-          <SecondaryText value="Entrar" />
-        </Pressable>
-      </View>
+          <CustomButton
+            displayText="Cadastrar-se"
+            handlePress={handleRegister}
+          />
+          <Pressable onPress={() => navigation.navigate(LOGIN)}>
+            <SecondaryText value="Entrar" />
+          </Pressable>
+        </View>
+      </ScrollView>
     </SafeContainer>
   );
 }
