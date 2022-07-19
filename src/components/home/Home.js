@@ -10,6 +10,7 @@ import {
 
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
 import HomeHeader from "./HomeHeader/HomeHeader";
+import BagdgeList from "./Badge/BadgeList";
 
 import { fetchQuizzes, fetchUser } from "../../../api/client";
 
@@ -55,9 +56,6 @@ function Home({ navigation }) {
           <BagdgeList quizzes={quizzes} />
 
           <View>
-            <Text>Horizontal Flat List with badges</Text>
-          </View>
-          <View>
             <Text>Quizz cards. FlatList or no?</Text>
           </View>
         </View>
@@ -66,31 +64,6 @@ function Home({ navigation }) {
         <Text>Inferior AppNavBar</Text>
       </View>
     </SafeContainer>
-  );
-}
-
-function Badge({ category }) {
-  return (
-    <View>
-      <Text>{category.toUpperCase()}</Text>
-    </View>
-  );
-}
-
-function BagdgeList({ quizzes }) {
-  const uniqueBadges = Array.from(new Set(quizzes.map((quiz) => quiz.search)));
-
-  function renderItem({ item }) {
-    return <Badge category={item} />;
-  }
-
-  return (
-    <FlatList
-      data={uniqueBadges}
-      renderItem={renderItem}
-      keyExtractor={(item) => `badge-${item}`}
-      horizontal={true}
-    />
   );
 }
 
