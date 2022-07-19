@@ -6,15 +6,18 @@ import {
   FlatList,
   TextInput,
   Pressable,
+  Image,
 } from "react-native";
 
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
 import HomeHeader from "./HomeHeader/HomeHeader";
 import BagdgeList from "./Badge/BadgeList";
+import QuizList from "./QuizCard/QuizList";
 
 import { fetchQuizzes, fetchUser } from "../../../api/client";
 
 import styles from "./styles";
+import { SEARCH, QUIZINTRO } from "../../../appData/routes/Routes";
 
 function Home({ navigation }) {
   const [userData, setUserData] = useState({});
@@ -40,26 +43,27 @@ function Home({ navigation }) {
     getQuizzes();
   }, []);
 
+  function handleBadgePress(category) {
+    navigation.navigate(SEARCH, { searchTerm: category });
+  }
+
+  function handleQuizPress(quiz) {
+    navigation.navigate(QUIZINTRO, { quiz });
+  }
+
   return (
     <SafeContainer>
-      <ScrollView
-        contentContainerStyle={styles.scrollContainer}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.container}>
-          <HomeHeader username={userData.name} />
+      <View style={styles.container}>
+        <HomeHeader username={userData.name} />
 
-          <View>
-            <Text>SearchBar</Text>
-          </View>
-
-          <BagdgeList quizzes={quizzes} />
-
-          <View>
-            <Text>Quizz cards. FlatList or no?</Text>
-          </View>
+        <View>
+          <Text>SearchBar</Text>
         </View>
-      </ScrollView>
+
+        <BagdgeList quizzes={quizzes} handlePress={handleBadgePress} />
+        <QuizList quizzes={quizzes} handlePress={handleQuizPress} />
+      </View>
+
       <View>
         <Text>Inferior AppNavBar</Text>
       </View>
