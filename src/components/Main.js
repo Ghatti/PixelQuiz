@@ -6,6 +6,7 @@ import IntroScreen from "./intro/IntroScreen";
 import LoginScreen from "./login/LoginScreen";
 import ForgotPasswordScreen from "./login/ForgotPassword/ForgotPassword";
 import RegisterScreen from "./login/Register/RegisterScreen";
+import Home from "./home/Home";
 
 //Routes
 import {
@@ -22,7 +23,8 @@ export default function Main() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={INTRO}
+        //initialRouteName={INTRO}
+        initialRouteName={HOME}
         screenOptions={{
           headerShown: false,
         }}
@@ -31,6 +33,7 @@ export default function Main() {
         <Stack.Screen name={LOGIN} component={LoginScreen} />
         <Stack.Screen name={FORGOTPASSWORD} component={ForgotPasswordScreen} />
         <Stack.Screen name={REGISTER} component={RegisterScreen} />
+        <Stack.Screen name={HOME} component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );
