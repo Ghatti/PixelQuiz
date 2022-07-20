@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     backgroundColor: "#F8F2EE",
     borderRadius: 8,
-    borderColor: globalStyles.color.darkGrey,
+    borderColor: globalStyles.color.grey,
     borderWidth: 1,
 
     height: 275,

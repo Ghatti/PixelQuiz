@@ -5,3 +5,5 @@ export const FORGOTPASSWORD = "ForgotPassword";
 export const REGISTER = "Register";
 export const SEARCH = "Search";
 export const QUIZINTRO = "QuizIntro";
+export const PROFILE = "Profile";
+export const CONFIGS = "Configs";

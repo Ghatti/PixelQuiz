@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 
     height: 170,
     width: "88%",
-  },
+  }
 });
 
 export default styles;
