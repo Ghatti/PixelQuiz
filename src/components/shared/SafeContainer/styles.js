@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
@@ -7,6 +7,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
 
     backgroundColor: "#EDDFBC",
+
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
 

@@ -5,7 +5,7 @@ import styles from "./styles";
 
 function HomeHeader({ username }) {
   return (
-    <View>
+    <View style={styles.headerContainer}>
       <Text style={styles.smallText}>Hello,</Text>
       <Text style={styles.mainText}>{username}</Text>
     </View>

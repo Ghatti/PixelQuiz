@@ -3,12 +3,10 @@ import globalStyles from "../../globalStyles";
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    justifyContent: "center",
+    justifyContent: "space-between",
 
+    height: 170,
     width: "88%",
-    //backgroundColor: "blue",
-    //justifyContent: "space-around",
   },
 });
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FlatList } from "react-native";
+import { FlatList, View } from "react-native";
 
 import Badge from "./Badge";
 
@@ -13,12 +13,14 @@ function BagdgeList({ quizzes, handlePress }) {
   }
 
   return quizzes ? (
-    <FlatList
-      data={uniqueBadges}
-      renderItem={renderItem}
-      keyExtractor={(item) => `badge-${item}`}
-      horizontal={true}
-    />
+    <View>
+      <FlatList
+        data={uniqueBadges}
+        renderItem={renderItem}
+        keyExtractor={(item) => `badge-${item}`}
+        horizontal={true}
+      />
+    </View>
   ) : null;
 }
 
