@@ -7,7 +7,6 @@ function client(route) {
   return axios
     .get(`${BASEURL + route}`)
     .then((response) => {
-      console.log(BASEURL + route);
       return {
         success: true,
         data: response.data,
@@ -26,7 +25,12 @@ function fetchQuizzes() {
   return client("/quizzes");
 }
 
+function fetchQuestions(id) {
+  return client(`/questions/${id}`);
+}
+
 module.exports = {
   fetchUser,
   fetchQuizzes,
+  fetchQuestions,
 };

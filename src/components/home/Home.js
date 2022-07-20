@@ -19,11 +19,7 @@ import InferiorNavBar from "../shared/InferiorNavBar/InferiorNavBar";
 import { fetchQuizzes, fetchUser } from "../../../api/client";
 
 import styles from "./styles";
-import {
-  HOME,
-  SEARCH,
-  QUIZINTRO,
-} from "../../../appData/routes/Routes";
+import { HOME, SEARCH, QUIZINTRO } from "../../../appData/routes/Routes";
 
 function Home({ navigation }) {
   const [userData, setUserData] = useState({});
@@ -42,7 +38,7 @@ function Home({ navigation }) {
   useEffect(() => {
     async function getQuizzes() {
       const { success, data } = await fetchQuizzes();
-      console.log(data);
+
       success && setQuizzes(data);
     }
 
@@ -54,8 +50,6 @@ function Home({ navigation }) {
   }
 
   function handleQuizPress(quiz) {
-    
-    
     navigation.navigate(QUIZINTRO, { quiz });
   }
 
