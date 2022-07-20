@@ -21,14 +21,7 @@ function QuizCard({ quiz, navigation }) {
   return (
     <Pressable onPress={() => handlePress(quiz)}>
       <View style={styles.container}>
-        <View
-          style={{
-            width: "100%",
-            height: 178,
-            borderRadius: 8,
-            alignSelf: "flex-start",
-          }}
-        >
+        <View style={styles.bannerContainer}>
           <Image
             source={{
               uri: banner_image,

@@ -9,21 +9,30 @@ const styles = StyleSheet.create({
     borderColor: globalStyles.color.darkGrey,
     borderWidth: 1,
 
-    height: 254,
+    height: 275,
+    width: "100%",
 
     alignItems: "center",
     overflow: "hidden",
   },
-  textContainer: {
-    marginTop: 5,
-    height: 60,
-    justifyContent: "space-around",
+  outsideList: {
+    width: "88%",
+    marginTop: 25,
+  },
+
+  bannerContainer: {
+    width: "100%",
+    height: 171,
   },
   banner: {
-    paddingTop: 0,
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
+    flex: 1,
+    resizeMode: "cover",
+  },
+  textContainer: {
+    flex: 1,
+    justifyContent: "space-evenly",
+    width: "90%",
+    paddingLeft: 10,
   },
   title: {
     fontFamily: globalStyles.font.main,

@@ -11,6 +11,7 @@ import {
 
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
 import HomeHeader from "./HomeHeader/HomeHeader";
+import SearchBar from "../shared/SearchBar/SearchBar";
 import BagdgeList from "./Badge/BadgeList";
 import QuizList from "./QuizCard/QuizList";
 
@@ -51,22 +52,21 @@ function Home({ navigation }) {
     navigation.navigate(QUIZINTRO, { quiz });
   }
 
+  function handleSearch(searchTerm) {
+    navigation.navigate(SEARCH, { searchTerm });
+  }
+
   return (
     <SafeContainer>
       <View style={styles.container}>
         <HomeHeader username={userData.name} />
 
-        <View>
-          <Text>SearchBar</Text>
-        </View>
+        <SearchBar handleSearch={handleSearch} />
 
         <BagdgeList quizzes={quizzes} handlePress={handleBadgePress} />
-        <QuizList quizzes={quizzes} handlePress={handleQuizPress} />
       </View>
 
-      <View>
-        <Text>Inferior AppNavBar</Text>
-      </View>
+      <QuizList quizzes={quizzes} handlePress={handleQuizPress} />
     </SafeContainer>
   );
 }

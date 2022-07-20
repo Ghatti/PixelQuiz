@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import QuizCard from "./QuizCard";
+import styles from "./styles";
 
 function QuizList({ quizzes, handlePress }) {
   function renderItem({ item }) {
@@ -18,6 +19,7 @@ function QuizList({ quizzes, handlePress }) {
 
   return quizzes ? (
     <FlatList
+      style={styles.outsideList}
       data={quizzes}
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
