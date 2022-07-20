@@ -27,6 +27,28 @@ const styles = StyleSheet.create({
   banner: {
     flex: 1,
     resizeMode: "cover",
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+  badgeContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+
+    marginRight: 25,
+    marginBottom: 10,
+
+    width: 72,
+    height: 30,
+
+    backgroundColor: globalStyles.color.lightBlue,
+    borderRadius: 16,
+  },
+  badgeText: {
+    fontFamily: globalStyles.font.main,
+    fontWeight: "bold",
+    fontSize: 12,
+
+    color: "#F2F2F2",
   },
   textContainer: {
     flex: 1,
