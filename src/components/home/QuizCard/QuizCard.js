@@ -11,11 +11,7 @@ import {
 
 import styles from "./styles";
 
-function QuizCard({ quiz, navigation }) {
-  function handlePress() {
-    navigation.navigate("Quiz");
-  }
-
+function QuizCard({ quiz, handlePress }) {
   const { banner_image, title, short_description, difficulty } = quiz;
 
   return (

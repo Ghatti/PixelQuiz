@@ -21,8 +21,6 @@ import { fetchQuizzes, fetchUser } from "../../../api/client";
 import styles from "./styles";
 import {
   HOME,
-  PROFILE,
-  CONFIGS,
   SEARCH,
   QUIZINTRO,
 } from "../../../appData/routes/Routes";
@@ -56,6 +54,8 @@ function Home({ navigation }) {
   }
 
   function handleQuizPress(quiz) {
+    
+    
     navigation.navigate(QUIZINTRO, { quiz });
   }
 

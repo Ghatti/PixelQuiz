@@ -7,6 +7,7 @@ import LoginScreen from "./login/LoginScreen";
 import ForgotPasswordScreen from "./login/ForgotPassword/ForgotPassword";
 import RegisterScreen from "./login/Register/RegisterScreen";
 import Home from "./home/Home";
+import QuizIntro from "./quizIntro/QuizIntro";
 
 //Routes
 import {
@@ -15,6 +16,7 @@ import {
   LOGIN,
   FORGOTPASSWORD,
   REGISTER,
+  QUIZINTRO,
 } from "../../appData/routes/Routes";
 
 const Stack = createNativeStackNavigator();
@@ -34,6 +36,7 @@ export default function Main() {
         <Stack.Screen name={FORGOTPASSWORD} component={ForgotPasswordScreen} />
         <Stack.Screen name={REGISTER} component={RegisterScreen} />
         <Stack.Screen name={HOME} component={Home} />
+        <Stack.Screen name={QUIZINTRO} component={QuizIntro} />
       </Stack.Navigator>
     </NavigationContainer>
   );
