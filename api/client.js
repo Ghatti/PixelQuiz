@@ -29,8 +29,13 @@ function fetchQuestions(id) {
   return client(`/questions/${id}`);
 }
 
+function searchQuiz(title) {
+  return client(`/quizzes?search=${title}`);
+}
+
 module.exports = {
   fetchUser,
   fetchQuizzes,
   fetchQuestions,
+  searchQuiz,
 };
