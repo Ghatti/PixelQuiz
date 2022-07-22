@@ -9,6 +9,7 @@ function Question({ selected, questionData, handleAnswer }) {
   const { question_text, banner_image, answers, correct_answer_index } =
     questionData;
 
+ 
   function isCorrect(index) {
     return index === correct_answer_index;
   }
