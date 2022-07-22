@@ -1,12 +1,6 @@
 import React from "react";
 import {
-  ScrollView,
-  View,
-  Text,
   FlatList,
-  TextInput,
-  Pressable,
-  Image,
 } from "react-native";
 
 import QuizCard from "./QuizCard";

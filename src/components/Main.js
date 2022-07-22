@@ -9,6 +9,7 @@ import RegisterScreen from "./login/Register/RegisterScreen";
 import Home from "./home/Home";
 import QuizIntro from "./quizIntro/QuizIntro";
 import Quiz from "./quiz/Quiz";
+import QuizResult from "./quizResult/quizResult";
 
 //Routes
 import {
@@ -19,6 +20,7 @@ import {
   REGISTER,
   QUIZINTRO,
   QUIZ,
+  QUIZRESULT,
 } from "../../appData/routes/Routes";
 
 const Stack = createNativeStackNavigator();
@@ -40,6 +42,7 @@ export default function Main() {
         <Stack.Screen name={HOME} component={Home} />
         <Stack.Screen name={QUIZINTRO} component={QuizIntro} />
         <Stack.Screen name={QUIZ} component={Quiz} />
+        <Stack.Screen name={QUIZRESULT} component={QuizResult} />
       </Stack.Navigator>
     </NavigationContainer>
   );
