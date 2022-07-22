@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, FlatList, Pressable } from "react-native";
 
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
 import styles from "./styles";
 
 import { fetchQuestions } from "../../../api/client";
+import Question from "./Question/Question";
 import CustomButton from "../shared/customButton/customButton";
+
+import { QUIZRESULT } from "../../../appData/routes/Routes";
 
 function Quiz({ navigation, route }) {
   const { id } = route.params;
 
   const [currentIndex, setCurrentIndex] = useState(null);
   const [questions, setQuestions] = useState([]);
+  const [rightAnswers, setRightAnswers] = useState(0);
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     async function getQuestions() {
@@ -25,11 +30,28 @@ function Quiz({ navigation, route }) {
     getQuestions();
   }, []);
 
+  function hasAnswered() {
+    return selected !== null;
+  }
+
+  function handleAnswer(correctIndex) {
+    return function (index) {
+      if (!hasAnswered()) {
+        setSelected(index);
+        correctIndex === index && setRightAnswers((prev) => prev + 1);
+      }
+    };
+  }
+
   function handleContinue() {
     if (currentIndex < questions.length - 1) {
       setCurrentIndex((prev) => prev + 1);
+      setSelected(null);
     } else {
-      console.log("Go to results");
+      navigation.navigate(QUIZRESULT, {
+        rightAnswers,
+        totalQuestions: questions.length,
+      });
     }
   }
 
@@ -38,26 +60,18 @@ function Quiz({ navigation, route }) {
       <View>
         <Text>{id}</Text>
         <Text>{`${currentIndex} de ${questions.length}`} </Text>
-        <Question questionData={questions[currentIndex]} />
+        <Question
+          selected={selected}
+          questionData={questions[currentIndex]}
+          handleAnswer={handleAnswer}
+        />
 
-        <CustomButton displayText="Continuar" handlePress={handleContinue} />
+        {hasAnswered() && (
+          <CustomButton displayText="Continuar" handlePress={handleContinue} />
+        )}
       </View>
     </SafeContainer>
   ) : null;
-}
-
-function Question({ questionData }) {
-  const { question_text } = questionData;
-
-  return (
-    <View>
-      <Text>{question_text}</Text>
-      <Text>Question Banner</Text>
-      <View>
-        <Text>Questions Answers</Text>
-      </View>
-    </View>
-  );
 }
 
 export default Quiz;
