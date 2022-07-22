@@ -2,13 +2,35 @@ import { StyleSheet } from "react-native";
 import globalStyles from "../../../globalStyles";
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,  
+    justifyContent: "space-around",
+  },
+  questionText: {
+    fontFamily: globalStyles.font.main,
+    fontWeight: "bold",
+    fontSize: 24,
+    textAlign: "center",
+    color: globalStyles.color.headerBlack,
+  },
   bannerContainer: {
     width: "100%",
-    height: 222,
+    height: 192,
+    borderRadius: 8,
+    borderColor: globalStyles.color.grey,
+    borderWidth: 2,
+    overflow: "hidden",
   },
   banner: {
     flex: 1,
     resizeMode: "cover",
+  },
+  outsideList: {
+    height: "43%",
+  },
+  insideList: {
+    height: "100%",
+    justifyContent: "space-around",
   },
   answerCardContainer: {
     justifyContent: "center",

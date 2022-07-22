@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, Image, FlatList, Pressable } from "react-native";
+import React from "react";
+import { View, Text, Image, FlatList } from "react-native";
 
 import AnswerCard from "./AnswerCard";
 
@@ -31,8 +31,8 @@ function Question({ selected, questionData, handleAnswer }) {
   }
 
   return (
-    <View>
-      <Text>{question_text}</Text>
+    <View style={styles.container}>
+      <Text style={styles.questionText}>{question_text}</Text>
 
       <View style={styles.bannerContainer}>
         <Image
@@ -42,13 +42,15 @@ function Question({ selected, questionData, handleAnswer }) {
           style={styles.banner}
         />
       </View>
-
-      <FlatList
-        data={answers}
-        renderItem={renderAnswer}
-        keyExtractor={(item, index) => `answer-${index}`}
-        showsVerticalScrollIndicator={false}
-      />
+      <View style={styles.outsideList}>
+        <FlatList
+          contentContainerStyle={styles.insideList}
+          data={answers}
+          renderItem={renderAnswer}
+          keyExtractor={(item, index) => `answer-${index}`}
+          showsVerticalScrollIndicator={false}
+        />
+      </View>
     </View>
   );
 }
