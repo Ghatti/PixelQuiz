@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, FlatList, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  ScrollView,
+  FlatList,
+  Pressable,
+} from "react-native";
 
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
 import ReturnButton from "../shared/ReturnButton/ReturnButton";
@@ -29,10 +36,8 @@ function SearchScreen({ navigation, route }) {
 
     const { success, data } = result;
     if (success) {
-      setSearchState("success");
+      data.length === 0 ? setSearchState("failed") : setSearchState("success");
       setResults(data);
-    } else {
-      setSearchState("failed");
     }
   }
 
@@ -57,22 +62,49 @@ function SearchScreen({ navigation, route }) {
         </View>
 
         <View>
-          {isState("success") && <Text>{`${results.length} Results`}</Text>}
+          {isState("success") && (
+            <Text style={styles.numResults}>{`${results.length} Results`}</Text>
+          )}
         </View>
 
-        <View>
-          {isState("idle") && (
-            <Text>If not searched, show comece a pesquisar</Text>
-          )}
-          {isState("success") && (
-            <QuizList quizzes={results} handlePress={handleQuizPress} />
-          )}
-          {isState("failed") && (
-            <Text>If search and no results, show no quiz found</Text>
-          )}
-        </View>
+        {isState("idle") && (
+          <InfoSearch
+            headerText={"Comece a pesquisar..."}
+            infoText={
+              "Digite um termo de busca para pesquisar todos os quizzes disponíveis no aplicativo!"
+            }
+          />
+        )}
+
+        {isState("failed") && (
+          <InfoSearch
+            image={require("../../../assets/images/searchScreen/coolKid.png")}
+            headerText={"Quiz não encontrado"}
+            infoText={
+              "Não encontramos nenhum quiz. Tente procurar usando palavras chaves diferentes..."
+            }
+          />
+        )}
       </View>
+
+      {isState("success") && (
+        <QuizList quizzes={results} handlePress={handleQuizPress} />
+      )}
     </SafeContainer>
+  );
+}
+
+function InfoSearch({ image, headerText, infoText }) {
+  return (
+    <View style={styles.infoContainer}>
+      {image && (
+        <View style={styles.bannerContainer}>
+          <Image style={styles.banner} source={image} />
+        </View>
+      )}
+      <Text style={styles.headerText}>{headerText}</Text>
+      <Text style={styles.infoText}>{infoText}</Text>
+    </View>
   );
 }
 

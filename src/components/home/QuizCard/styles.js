@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
 
     height: 275,
     width: "100%",
-
     alignItems: "center",
     overflow: "hidden",
   },
