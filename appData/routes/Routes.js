@@ -8,4 +8,6 @@ export const QUIZINTRO = "QuizIntro";
 export const QUIZ = "Quiz";
 export const QUIZRESULT = "QuizResult";
 export const PROFILE = "Profile";
+export const ABOUTAPP = "About App";
+export const HISTORY = "History";
 export const CONFIGS = "Configs";
