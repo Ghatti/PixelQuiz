@@ -1,7 +1,5 @@
 import { StyleSheet, StatusBar } from "react-native";
 
-import globalStyles from "../../globalStyles";
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
