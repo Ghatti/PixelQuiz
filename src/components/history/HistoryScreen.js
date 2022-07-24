@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
 import ReturnHeader from "../shared/ReturnHeader/ReturnHeader";

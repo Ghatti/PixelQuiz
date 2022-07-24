@@ -23,7 +23,6 @@ function Profile({ navigation }) {
     getUser();
   }, []);
 
-  console.log(userData);
   function handleNavPress(route) {
     navigation.navigate(route);
   }

@@ -14,6 +14,7 @@ import SearchScreen from "./search/SearchScreen";
 import QuizIntro from "./quizIntro/QuizIntro";
 import Quiz from "./quiz/Quiz";
 import QuizResult from "./quizResult/quizResult";
+import ConfigsScreen from "./configs/ConfigsScreen";
 
 //Routes
 import {
@@ -29,6 +30,7 @@ import {
   QUIZINTRO,
   QUIZ,
   QUIZRESULT,
+  CONFIGS,
 } from "../../appData/routes/Routes";
 
 const Stack = createNativeStackNavigator();
@@ -37,8 +39,7 @@ export default function Main() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        //initialRouteName={INTRO}
-        initialRouteName={HOME}
+        initialRouteName={INTRO}
         screenOptions={{
           headerShown: false,
         }}
@@ -51,6 +52,7 @@ export default function Main() {
         <Stack.Screen name={PROFILE} component={Profile} />
         <Stack.Screen name={HISTORY} component={HistoryScreen} />
         <Stack.Screen name={ABOUTAPP} component={AboutScreen} />
+        <Stack.Screen name={CONFIGS} component={ConfigsScreen} />
         <Stack.Screen name={SEARCH} component={SearchScreen} />
         <Stack.Screen name={QUIZINTRO} component={QuizIntro} />
         <Stack.Screen name={QUIZ} component={Quiz} />
