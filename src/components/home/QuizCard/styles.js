@@ -67,6 +67,35 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: globalStyles.color.headerBlack,
   },
+  answeredInfo: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  goodAttempt: {
+    fontFamily: globalStyles.font.main,
+
+    fontWeight: "bold",
+    fontSize: 12,
+
+    color: "#5BA092",
+  },
+  badAttempt: {
+    fontFamily: globalStyles.font.main,
+
+    fontWeight: "bold",
+    fontSize: 12,
+
+    color: "#EF4949",
+  },
+  answeredDate: {
+    fontFamily: globalStyles.font.main,
+
+    fontWeight: "bold",
+    fontSize: 12,
+
+    color: globalStyles.color.darkGrey,
+  },
 });
 
 export default styles;

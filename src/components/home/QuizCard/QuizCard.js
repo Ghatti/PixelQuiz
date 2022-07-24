@@ -1,18 +1,20 @@
 import React from "react";
-import {
-  ScrollView,
-  View,
-  Text,
-  FlatList,
-  TextInput,
-  Pressable,
-  ImageBackground,
-} from "react-native";
+import { View, Text, Pressable, ImageBackground } from "react-native";
+
+import AnsweredInfo from "./AnsweredInfo";
 
 import styles from "./styles";
 
-function QuizCard({ quiz, handlePress }) {
-  const { banner_image, title, short_description, difficulty } = quiz;
+function QuizCard({ quiz, displayAnswered, handlePress }) {
+  const {
+    banner_image,
+    title,
+    short_description,
+    difficulty,
+    correct_answers_count,
+    questions_count,
+    answered_date,
+  } = quiz;
 
   return (
     <Pressable onPress={() => handlePress(quiz)}>
@@ -33,6 +35,13 @@ function QuizCard({ quiz, handlePress }) {
         </View>
 
         <View style={styles.textContainer}>
+          {displayAnswered && (
+            <AnsweredInfo
+              correctNum={correct_answers_count}
+              totalQuestions={questions_count}
+              answeredDate={answered_date}
+            />
+          )}
           <Text style={styles.title}>{title}</Text>
           <Text style={styles.shortDescription}>{short_description}</Text>
         </View>

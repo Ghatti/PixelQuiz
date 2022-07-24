@@ -8,6 +8,7 @@ import ForgotPasswordScreen from "./login/ForgotPassword/ForgotPassword";
 import RegisterScreen from "./login/Register/RegisterScreen";
 import Home from "./home/Home";
 import Profile from "./profile/Profile";
+import HistoryScreen from "./history/HistoryScreen";
 import SearchScreen from "./search/SearchScreen";
 import QuizIntro from "./quizIntro/QuizIntro";
 import Quiz from "./quiz/Quiz";
@@ -17,6 +18,8 @@ import QuizResult from "./quizResult/quizResult";
 import {
   HOME,
   PROFILE,
+  HISTORY,
+  ABOUTAPP,
   SEARCH,
   INTRO,
   LOGIN,
@@ -45,6 +48,7 @@ export default function Main() {
         <Stack.Screen name={REGISTER} component={RegisterScreen} />
         <Stack.Screen name={HOME} component={Home} />
         <Stack.Screen name={PROFILE} component={Profile} />
+        <Stack.Screen name={HISTORY} component={HistoryScreen} />
         <Stack.Screen name={SEARCH} component={SearchScreen} />
         <Stack.Screen name={QUIZINTRO} component={QuizIntro} />
         <Stack.Screen name={QUIZ} component={Quiz} />

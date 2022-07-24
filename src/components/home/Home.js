@@ -72,6 +72,7 @@ function Home({ navigation }) {
       </View>
 
       <QuizList quizzes={quizzes} handlePress={handleQuizPress} />
+
       <InferiorNavBar active={HOME} handlePress={handleNavPress} />
     </SafeContainer>
   );

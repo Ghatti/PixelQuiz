@@ -25,6 +25,10 @@ function fetchQuizzes() {
   return client("/quizzes");
 }
 
+function fetchAnsweredQuizzes() {
+  return client("/quizzes?is_answered=true");
+}
+
 function fetchQuestions(id) {
   return client(`/questions/${id}`);
 }
@@ -38,4 +42,5 @@ module.exports = {
   fetchQuizzes,
   fetchQuestions,
   searchQuiz,
+  fetchAnsweredQuizzes,
 };
