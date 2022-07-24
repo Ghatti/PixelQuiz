@@ -2,9 +2,9 @@ import React from "react";
 import { View, Text } from "react-native";
 
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
-import QuizIntroHeader from "./QuizIntroHeader";
 import QuizBanner from "./QuizBanner";
 import CustomButton from "../shared/customButton/customButton";
+import ReturnHeader from "../shared/ReturnHeader/ReturnHeader";
 import styles from "./styles";
 
 import { QUIZ } from "../../../appData/routes/Routes";
@@ -25,7 +25,7 @@ function QuizIntro({ navigation, route }) {
   return (
     <SafeContainer>
       <View style={styles.container}>
-        <QuizIntroHeader title={title} goBack={goBack} />
+        <ReturnHeader title={title} goBack={goBack} />
         <QuizBanner source={banner_image} difficulty={difficulty} />
         <View>
           <Text style={styles.sectionHeader}>Sobre o Quiz</Text>

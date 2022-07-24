@@ -3,9 +3,8 @@ import { View, Text } from "react-native";
 import CustomButton from "../shared/customButton/customButton";
 
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
-import ReturnButton from "../shared/ReturnButton/ReturnButton";
+import ReturnHeader from "../shared/ReturnHeader/ReturnHeader";
 import styles from "./styles";
-import { QUIZINTRO } from "../../../appData/routes/Routes";
 
 function QuizResult({ navigation, route }) {
   const { rightAnswers, totalQuestions } = route.params;
@@ -23,12 +22,7 @@ function QuizResult({ navigation, route }) {
   return (
     <SafeContainer>
       <View style={styles.container}>
-        <View style={styles.headerContainer}>
-          <ReturnButton goBack={goBack} />
-          <View style={styles.headerTextContainer}>
-            <Text style={styles.headerText}>Resultados</Text>
-          </View>
-        </View>
+        <ReturnHeader title={"Resultados"} goBack={goBack} />
 
         <View style={styles.mainSection}>
           <Text

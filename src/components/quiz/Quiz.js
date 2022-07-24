@@ -4,7 +4,7 @@ import { View, Text, Image, FlatList, Pressable } from "react-native";
 import SafeContainer from "../shared/SafeContainer/SafeContainer";
 import Question from "./Question/Question";
 import CustomButton from "../shared/customButton/customButton";
-import ReturnButton from "../shared/ReturnButton/ReturnButton";
+import ReturnHeader from "../shared/ReturnHeader/ReturnHeader";
 
 import styles from "./styles";
 import { fetchQuestions } from "../../../api/client";
@@ -62,13 +62,11 @@ function Quiz({ navigation, route }) {
   return currentIndex !== null ? (
     <SafeContainer>
       <View style={styles.container}>
-        <View style={styles.headerContainer}>
-          <ReturnButton goBack={goBack} />
-
-          <Text style={styles.questionCounter}>
-            {`${currentIndex} de ${questions.length}`}
-          </Text>
-        </View>
+        <ReturnHeader
+          textStyle={styles.questionCounter}
+          title={`${currentIndex} de ${questions.length}`}
+          goBack={goBack}
+        />
 
         <Question
           selected={selected}
