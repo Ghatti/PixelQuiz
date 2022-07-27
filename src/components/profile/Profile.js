@@ -47,8 +47,8 @@ function Profile({ navigation }) {
           displayText="Sobre o app"
           handlePress={() => navigation.navigate(ABOUTAPP)}
         />
-        <InferiorNavBar active={PROFILE} handlePress={handleNavPress} />
       </View>
+      <InferiorNavBar active={PROFILE} handlePress={handleNavPress} />
     </SafeContainer>
   );
 }

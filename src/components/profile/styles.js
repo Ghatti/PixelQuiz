@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     width: "88%",
     alignItems: "center",
     justifyContent: "space-between",
+    marginBottom: 25,
   },
   avatarContainer: {
     height: 155,
